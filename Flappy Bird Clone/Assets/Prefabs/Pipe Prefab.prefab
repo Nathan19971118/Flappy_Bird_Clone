@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7181749693666722586}
   - component: {fileID: 3733225288108587348}
+  - component: {fileID: 4553769795697240841}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &4553769795697240841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139867994699904255}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.26, y: 1.6, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2596198183827678813
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +118,7 @@ GameObject:
   - component: {fileID: 1305164199438640206}
   m_Layer: 0
   m_Name: Pipe Prefab
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,6 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8604263481389333719}
   - component: {fileID: 1152039677642856363}
+  - component: {fileID: 4944880598693457410}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -247,3 +270,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &4944880598693457410
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5240424652973268976}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.26, y: 1.6, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
