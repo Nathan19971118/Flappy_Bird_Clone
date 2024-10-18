@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float jumpForce = 5f;
-    public float gravity = -9.8f;
 
+    Rigidbody2D playerRb;
     Vector2 velocity;
     public bool isAlive = true;
+    public bool hasStarted = false;
 
     [SerializeField]
     private bool useMouseInput = true;
@@ -20,7 +21,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playerRb = GetComponent<Rigidbody2D>();
+        playerRb.gravityScale = 0;
     }
 
     // Update is called once per frame
@@ -28,17 +30,28 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAlive) return;
 
-        //Check for touch input
+        if (!hasStarted)
+        {
+            //Wait for the first jump input to start the game
+            if (ShouldJump())
+            {
+                StartGame();
+            }
+            return;
+        }
+
+        //Check for jump input evert frame
         if (ShouldJump())
         {
             Jump();
         }
+    }
 
-        //Apply gravity
-        velocity.y += gravity * Time.deltaTime;
-
-        //Move the bird
-        transform.Translate(velocity * Time.deltaTime);
+    void StartGame()
+    {
+        hasStarted = true;
+        playerRb.gravityScale = 1;
+        Jump();
     }
 
     bool ShouldJump()
@@ -70,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        velocity.y = jumpForce;
+        playerRb.velocity = Vector2.up * jumpForce;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

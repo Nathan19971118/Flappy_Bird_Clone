@@ -313,10 +313,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.6
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -375,9 +375,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2b376e912221d45b59ed2346fa152b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 5
-  gravity: -9.8
+  jumpForce: 3
   isAlive: 1
+  hasStarted: 0
   useMouseInput: 1
   useKeyboardInput: 1
   useTouchInput: 1
