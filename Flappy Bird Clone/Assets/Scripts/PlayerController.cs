@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float jumpForce = 5f;
+    float matHeight = 0.72f;
 
     Rigidbody2D playerRb;
     Vector2 velocity;
