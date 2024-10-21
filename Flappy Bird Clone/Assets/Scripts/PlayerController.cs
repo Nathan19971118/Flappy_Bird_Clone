@@ -40,9 +40,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        Debug.Log("Collision detected with: " + collision.gameObject.name +
+                  " (Layer: " + LayerMask.LayerToName(collision.gameObject.layer) + ")");
+
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Obstacle"))
         {
             isAlive = false;
+            Debug.Log("Player is no longer alive!");
             // Implement game over logic here
         }
     }
