@@ -10,13 +10,27 @@ public class PlayerController : MonoBehaviour
 
     float initialX;
     Rigidbody2D playerRb;
+    Animator playerAnim;
     public bool isAlive = true;
+
+    RepeatBackground background; // Changed to array to handle multiple backgrounds
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
+        playerAnim = GetComponent<Animator>();
+        playerAnim.SetBool("isFlap", true);
         initialX = transform.position.x; // Store the initial x-position
+
+        // Find the RepeatBackground component in the scene
+        background = FindObjectOfType<RepeatBackground>();
+
+        // Add error checking
+        if (background == null)
+        {
+            Debug.LogWarning("RepeatBackground component not found in the scene!");
+        }
     }
 
     // Update is called once per frame
@@ -45,9 +59,22 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Obstacle"))
         {
-            isAlive = false;
-            Debug.Log("Player is no longer alive!");
-            // Implement game over logic here
+            GameOver();
         }
+    }
+
+    private void GameOver()
+    {
+        isAlive = false;
+        playerAnim.SetBool("isFlap", false);
+        Debug.Log("Player is no longer alive!");
+
+        // Add null check before calling StopScrolling
+        if (background != null)
+        {
+            background.StopScrolling();
+        }
+
+        // Add additional game over logic here (UI, sounds, etc.)
     }
 }
