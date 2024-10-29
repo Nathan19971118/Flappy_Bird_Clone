@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Collision detected with: " + collision.gameObject.name +
                   " (Layer: " + LayerMask.LayerToName(collision.gameObject.layer) + ")");
 
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Pipe"))
         {
             GameOver();
         }
@@ -67,13 +67,9 @@ public class PlayerController : MonoBehaviour
     {
         isAlive = false;
         playerAnim.SetBool("isFlap", false);
-        Debug.Log("Player is no longer alive!");
+        background.isScrolling = false;
 
-        // Add null check before calling StopScrolling
-        if (background != null)
-        {
-            background.StopScrolling();
-        }
+        Debug.Log("Player is no longer alive!");
 
         // Add additional game over logic here (UI, sounds, etc.)
     }
