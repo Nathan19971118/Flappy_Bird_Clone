@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Obstacle
   - Ground
   - Boundary
   - Pipe
+  - Score Zone
   layers:
   - Default
   - TransparentFX

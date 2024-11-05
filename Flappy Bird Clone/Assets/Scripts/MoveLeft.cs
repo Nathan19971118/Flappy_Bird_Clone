@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-    float speed = 2f;
-    float leftBound = -1.5f;
-    PlayerController playerController;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-    }
+    [Header("Movement Settings")]
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private float leftBound = -1.5f;
 
     // Update is called once per frame
     void Update()
     {
-        if (playerController.isAlive)
+        // Only move if game is active
+        if (GameManager.Instance != null && GameManager.Instance.isGameStarted && !GameManager.Instance.isGamePaused)
         {
             transform.Translate(Vector2.left * Time.deltaTime * speed);
-        }
 
-        if (transform.position.x < leftBound && gameObject.CompareTag("Obstacle"))
-        {
-            Destroy(gameObject);
+            // Destroy obstacles that are out of bounds
+            if (transform.position.x < leftBound && 
+                (gameObject.CompareTag("Pipe") && gameObject.CompareTag("Score Zone")))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
