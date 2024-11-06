@@ -22,14 +22,17 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Elements")]
     public Text scoreText;             // Displays current score
-    public Image gameOverImage;        // Shows game over status
     public GameObject titleScreen;     // Reference to the title screen
     public GameObject gameOverScreen;  // Reference to the game over screen
     public GameObject inGameScreen;    // Reference to the in game screen
     public Button playButton;          // Add reference to play button
 
+    [Header("Reference")]
+    public SpawnManager spawnManager;
+    public PlayerController playerController;
+
     bool isInitialized = false;
-    
+
     void Awake()
     {
         if (_instance == null)
@@ -47,7 +50,7 @@ public class UIManager : MonoBehaviour
     void InitializeUI()
     {
         // Verify components
-        if (scoreText == null || gameOverImage == null || titleScreen == null || inGameScreen == null || playButton == null)
+        if (scoreText == null || gameOverScreen == null || titleScreen == null || inGameScreen == null || playButton == null)
         {
             Debug.LogError("UI components not properly assigned to UIManager!");
             return;
@@ -55,7 +58,7 @@ public class UIManager : MonoBehaviour
 
         // Setup initial state
         scoreText.text = "0";
-        gameOverImage.gameObject.SetActive(false);
+        gameOverScreen.gameObject.SetActive(false);
         titleScreen.SetActive(true);
 
         // Setup button
@@ -70,7 +73,7 @@ public class UIManager : MonoBehaviour
     {
         // Initialize the UI at the beginning of the game
         UpdateScore(0);
-        gameOverImage.gameObject.SetActive(false);
+        gameOverScreen.gameObject.SetActive(false);
         titleScreen.SetActive(true); // Ensure title screen is visible at start
     }
 
@@ -94,6 +97,23 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogError("GameManager not found in scene!");
         }
+
+        
+    }
+
+    public void OnReplayButtonClicked()
+    {
+        // Hide the Game Over UI
+        gameOverScreen.SetActive(false);
+
+        if (playerController != null)
+        {
+            playerController.ResetPosition();
+            playerController.StartPlaying();
+        }
+
+        // Reset game state
+        GameManager.Instance.RestartGame();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -116,7 +136,7 @@ public class UIManager : MonoBehaviour
 
     public void OnGameStart()
     {
-        gameOverImage.gameObject.SetActive(false);
+        gameOverScreen.gameObject.SetActive(false);
         inGameScreen.gameObject.SetActive(true);
 
         UpdateScore(0);
@@ -127,7 +147,7 @@ public class UIManager : MonoBehaviour
 
     public void OnGameOver()
     {
-        gameOverImage.gameObject.SetActive(true);
+        gameOverScreen.gameObject.SetActive(true);
         inGameScreen.gameObject.SetActive(false);
         gameOverScreen.SetActive(true); // Show game over screen on game over
     }

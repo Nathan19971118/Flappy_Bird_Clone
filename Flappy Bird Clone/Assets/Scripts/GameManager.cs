@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -187,6 +189,7 @@ public class GameManager : MonoBehaviour
         if (playerController != null)
         {
             playerController.isAlive = false;
+            playerController.playerRb.simulated = false;
         }
 
         if (background != null)
@@ -209,8 +212,28 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        // Reload the current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // Reset player state, score, etc.
+        currentScore = 0;
+        isGameStarted = true;
+        isGamePaused = false;
+
+        if (playerController != null)
+        {
+            playerController.isAlive = true;
+            playerController.playerAnim.SetBool("isFlap", true);
+            playerController.ResetPosition(); 
+        }
+
+        if (background != null)
+        {
+            background.isScrolling = true;
+        }
+
+        // Clear pipes on screen and restart spawning
+        spawnManager.DestroyObjects();
+
+        UIManager.Instance.OnGameStart();
+        spawnManager.SpawnObstacles();
     }
 
     public void IncreaseScore(int amount)

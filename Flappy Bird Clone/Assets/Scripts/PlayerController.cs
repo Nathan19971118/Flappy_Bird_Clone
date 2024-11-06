@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
     public float minYPosition = -1.28f; // Adjust this to set the lower boundary
 
     [Header("Components")]
-    Rigidbody2D playerRb;
-    Animator playerAnim;
-    float initialX;
+    public Rigidbody2D playerRb;
+    public Animator playerAnim;
+    public float initialX;
+    public Vector3 initialPosition;  // Save the initial position here
     public bool isAlive = true;
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
         initialX = transform.position.x; // Store the initial x-position
+        initialPosition = transform.position; // Save the initial position at start
 
         // Initialize animation but don't start flapping until game starts
         playerAnim.SetBool("isFlap", false);
@@ -56,6 +58,16 @@ public class PlayerController : MonoBehaviour
         playerRb.simulated = true;
         playerAnim.SetBool("isFlap", true);
         isAlive = true;
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = new Vector3(initialX, initialPosition.y, 0);  // Reset to initial x and y
+        transform.rotation = Quaternion.identity;  // Reset rotation to default (no tilt)
+        playerRb.velocity = Vector2.zero;  // Reset any movement
+        playerRb.simulated = true;
+        isAlive = true;
+        playerAnim.SetBool("isFlap", true); // Reset animation if needed
     }
 
     void Jump()

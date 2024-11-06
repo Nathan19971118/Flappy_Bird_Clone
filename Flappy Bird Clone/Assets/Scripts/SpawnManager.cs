@@ -9,8 +9,8 @@ public class SpawnManager : MonoBehaviour
     public float spawnX = 10f;
     public float minY = -1f;
     public float maxY = 3f;
-    float startDelay = 2f;
-    float repeatRate = 2f;
+    float startDelay = 1f;
+    float repeatRate = 0.7f;
 
     PlayerController playerController;
     bool isSpawning = false;
@@ -51,6 +51,21 @@ public class SpawnManager : MonoBehaviour
         else
         {
             StopSpawning();
+        }
+    }
+
+    public void DestroyObjects()
+    {
+        if (playerController.isAlive == true)
+        {
+            // Find all objects tagged as "Pipe"
+            GameObject[] pipes = GameObject.FindGameObjectsWithTag("Pipe");
+
+            // Loop through each pipe and destroy it
+            foreach (GameObject pipe in pipes)
+            {
+                Destroy(pipe);
+            }
         }
     }
 }

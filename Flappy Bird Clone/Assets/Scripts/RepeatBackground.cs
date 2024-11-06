@@ -5,7 +5,7 @@ using UnityEngine;
 public class RepeatBackground : MonoBehaviour
 {
     [Header("Scroll Settings")]
-    [SerializeField] float scrollSpeed = 2.0f;  // Control the scroll speed in Inspector
+    [SerializeField] float scrollSpeed = 0.5f;  // Control the scroll speed in Inspector
     Vector3 startPos;
     float repeatWidth;
     public bool isScrolling;
