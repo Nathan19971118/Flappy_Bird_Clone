@@ -600,7 +600,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 529398744}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 683693838}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnPlayButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &529398744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -938,6 +950,7 @@ MonoBehaviour:
   gameOverImage: {fileID: 347123267}
   titleScreen: {fileID: 318289940}
   gameOverScreen: {fileID: 1366770780}
+  inGameScreen: {fileID: 1798660096}
   playButton: {fileID: 2061900163}
 --- !u!4 &683693839
 Transform:
@@ -985,8 +998,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 2596198183827678813, guid: 156ff456ccedd0347976828607b2fb8a, type: 3}
   spawnX: 10
-  minY: -1
-  maxY: 3
+  minY: -1.1
+  maxY: 1.2
 --- !u!4 &1007537281
 Transform:
   m_ObjectHideFlags: 0

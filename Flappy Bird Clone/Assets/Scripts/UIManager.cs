@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     public Image gameOverImage;        // Shows game over status
     public GameObject titleScreen;     // Reference to the title screen
     public GameObject gameOverScreen;  // Reference to the game over screen
+    public GameObject inGameScreen;    // Reference to the in game screen
     public Button playButton;          // Add reference to play button
 
     bool isInitialized = false;
@@ -46,7 +47,7 @@ public class UIManager : MonoBehaviour
     void InitializeUI()
     {
         // Verify components
-        if (scoreText == null || gameOverImage == null || titleScreen == null || playButton == null)
+        if (scoreText == null || gameOverImage == null || titleScreen == null || inGameScreen == null || playButton == null)
         {
             Debug.LogError("UI components not properly assigned to UIManager!");
             return;
@@ -87,10 +88,20 @@ public class UIManager : MonoBehaviour
         {
             gameManager.StartGame();
             titleScreen.SetActive(false);
+            gameOverScreen.SetActive(false);
         }
         else
         {
             Debug.LogError("GameManager not found in scene!");
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Score Zone"))
+        {
+            GameManager.Instance.OnPipePass();
+            UpdateScore(0);
         }
     }
 
@@ -106,6 +117,8 @@ public class UIManager : MonoBehaviour
     public void OnGameStart()
     {
         gameOverImage.gameObject.SetActive(false);
+        inGameScreen.gameObject.SetActive(true);
+
         UpdateScore(0);
 
         // Reset score display
@@ -115,6 +128,7 @@ public class UIManager : MonoBehaviour
     public void OnGameOver()
     {
         gameOverImage.gameObject.SetActive(true);
+        inGameScreen.gameObject.SetActive(false);
         gameOverScreen.SetActive(true); // Show game over screen on game over
     }
 }
