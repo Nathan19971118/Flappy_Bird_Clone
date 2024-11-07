@@ -1,3 +1,5 @@
 # Flappy_Bird_Clone
 A repository of Flappy Bird Clone
-I want to be a game developer.
+
+Tap or click the play button to start
+Tap, left-click, or press the space bar to jump.
