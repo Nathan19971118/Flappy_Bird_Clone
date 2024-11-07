@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(initialX, initialPosition.y, 0);  // Reset to initial x and y
         transform.rotation = Quaternion.identity;  // Reset rotation to default (no tilt)
         playerRb.velocity = Vector2.zero;  // Reset any movement
+        playerRb.angularVelocity = 0f;    // Add this line to prevent spinning
         playerRb.simulated = true;
         isAlive = true;
         playerAnim.SetBool("isFlap", true); // Reset animation if needed
@@ -86,8 +87,10 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Add score when passing through pipe scoring trigger
+        Debug.Log("Trigger entered with: " + other.tag);  // Add this debug line
         if (other.CompareTag("Score Zone"))
         {
+            Debug.Log("Score Zone detected!");  // Add this debug line
             GameManager.Instance.OnPipePass();
         }
     }

@@ -116,15 +116,6 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.RestartGame();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Score Zone"))
-        {
-            GameManager.Instance.OnPipePass();
-            UpdateScore(0);
-        }
-    }
-
     // Update is called once per frame
     public void UpdateScore(int score)
     {

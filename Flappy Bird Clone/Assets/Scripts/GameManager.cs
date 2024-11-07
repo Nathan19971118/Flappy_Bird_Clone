@@ -99,26 +99,6 @@ public class GameManager : MonoBehaviour
         currentScore = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            // TogglePause();
-        }
-
-        // Update score while game is running
-        if (isGameStarted && !isGamePaused && playerController.isAlive)
-        {
-            scoreTimer += Time.deltaTime;
-            if (scoreTimer >= scoreIncreaseRate)
-            {
-                scoreTimer = 0f;
-                IncreaseScore(1);
-            }
-        }
-    }
-
     public void StartGame()
     {
         // Verify all required components are present
@@ -240,12 +220,15 @@ public class GameManager : MonoBehaviour
     {
         currentScore += amount;
         // Notify UI Manager
-        UIManager.Instance.UpdateScore(currentScore);
+        UIManager.Instance.UpdateScore(currentScore); 
     }
 
     // Method to be called when passing through pipes
     public void OnPipePass()
     {
-        IncreaseScore(1);  // Award 1 point for passing through pipes
+        if (isGameStarted && !isGamePaused && playerController.isAlive)
+        {
+            IncreaseScore(1);  // Increase score by 1 for each pipe passed
+        }
     }
 }

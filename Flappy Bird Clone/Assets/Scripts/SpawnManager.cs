@@ -61,10 +61,19 @@ public class SpawnManager : MonoBehaviour
             // Find all objects tagged as "Pipe"
             GameObject[] pipes = GameObject.FindGameObjectsWithTag("Pipe");
 
+            // Find all objects tagged as "Score Zone"
+            GameObject[] scoreZones = GameObject.FindGameObjectsWithTag("Score Zone");
+
             // Loop through each pipe and destroy it
             foreach (GameObject pipe in pipes)
             {
                 Destroy(pipe);
+            }
+
+            // Loop through each pipe and destroy it
+            foreach (GameObject scoreZone in scoreZones)
+            {
+                Destroy(scoreZone);
             }
         }
     }
