@@ -362,7 +362,7 @@ TextureImporter:
         width: 113
         height: 57
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -370,6 +370,90 @@ TextureImporter:
       bones: []
       spriteID: 880ee92bb8b98a942a3f3b85e06b9310
       internalID: -772357009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bronze Medal
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 13
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa893f99327a2648a4459046d553a31
+      internalID: 1573584813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Silver Medal
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 37
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1e3bf8ec7658af4a9eda4f6fcbbceb0
+      internalID: 761447504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gold Medal
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 208
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b224a18af5366c479b6e53c56aa32ad
+      internalID: -1103107939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Platinum Medal
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 232
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b70ba34c01197164ab2b645afe340786
+      internalID: -952155286
       vertices: []
       indices: 
       edges: []
@@ -385,6 +469,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Bronze Medal: 1573584813
+      Gold Medal: -1103107939
       Mobile - Flappy Bird - Version 12 Sprites_0: 1794131935
       Mobile - Flappy Bird - Version 12 Sprites_1: 1943281729
       Mobile - Flappy Bird - Version 12 Sprites_10: 1625446230
@@ -397,6 +483,8 @@ TextureImporter:
       Mobile - Flappy Bird - Version 12 Sprites_7: 1655236870
       Mobile - Flappy Bird - Version 12 Sprites_8: -315798367
       Mobile - Flappy Bird - Version 12 Sprites_9: -966391895
+      Platinum Medal: -952155286
+      Silver Medal: 761447504
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -188,6 +188,8 @@ public class GameManager : MonoBehaviour
         {
             UIManager.Instance.OnGameOver();
         }
+
+        UIManager.Instance.DisplayGameOverUI(currentScore, highScore);
     }
 
     public void RestartGame()

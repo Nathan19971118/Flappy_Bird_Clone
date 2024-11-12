@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
@@ -19,13 +20,20 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
     [Header("UI Elements")]
-    public Text scoreText;             // Displays current score
-    public GameObject titleScreen;     // Reference to the title screen
-    public GameObject gameOverScreen;  // Reference to the game over screen
-    public GameObject inGameScreen;    // Reference to the in game screen
-    public Button playButton;          // Add reference to play button
+    public Text scoreText;               // Displays current score
+    public Text currentScoreText;        // Displays current score when the game is over
+    public Text highScoreText;           // Displays high score
+    public GameObject titleScreen;       // Reference to the title screen
+    public GameObject gameOverScreen;    // Reference to the game over screen
+    public GameObject inGameScreen;      // Reference to the in game screen
+    public Button playButton;            // Add reference to play button
+
+    public SpriteRenderer medalRenderer;  // Reference to the SpriteRenderer for the medal
+    public Sprite bronzeMedal;            // Bronze metal sprite
+    public Sprite silverMedal;            // Silver metal sprite
+    public Sprite goldMedal;              // Gold metal sprite
+    public Sprite platinumMedal;          // Platinum metal sprite
 
     [Header("Reference")]
     public SpawnManager spawnManager;
@@ -97,8 +105,6 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogError("GameManager not found in scene!");
         }
-
-        
     }
 
     public void OnReplayButtonClicked()
@@ -141,5 +147,42 @@ public class UIManager : MonoBehaviour
         gameOverScreen.gameObject.SetActive(true);
         inGameScreen.gameObject.SetActive(false);
         gameOverScreen.SetActive(true); // Show game over screen on game over
+    }
+
+    // Method to update scores on the game over screen
+    public void DisplayGameOverUI(int currentScore, int highScore)
+    {
+        currentScoreText.text = currentScore.ToString();
+        highScoreText.text = highScore.ToString();
+
+        // Enable the medal GameObject
+        medalRenderer.gameObject.SetActive(true);
+
+        // Determine which medal to display
+        if (currentScore >= 40)
+        {
+            medalRenderer.sprite = platinumMedal;
+        }
+        else if (currentScore >= 30) // Set your thresholds as desired
+        {
+            medalRenderer.sprite = goldMedal;
+        }
+        else if (currentScore >= 20)
+        {
+            medalRenderer.sprite = silverMedal;
+        }
+        else if (currentScore >= 10)
+        {
+            medalRenderer.sprite = bronzeMedal;
+        }
+        else
+        {
+            medalRenderer.sprite = null; // No medal for lower scores
+        }
+    }
+
+    public void HideGameOverUI()
+    {
+        medalRenderer.gameObject.SetActive(false);
     }
 }

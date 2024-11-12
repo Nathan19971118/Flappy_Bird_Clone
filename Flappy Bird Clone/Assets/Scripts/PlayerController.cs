@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Types;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -40,17 +41,31 @@ public class PlayerController : MonoBehaviour
         // Only process input if game is started and player is alive
         if (GameManager.Instance.isGameStarted && !GameManager.Instance.isGamePaused && isAlive)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || TouchDetected())
             {
                 Jump();
             }
         }
-
         // Keep player within bounds
         Vector3 pos = transform.position;
         pos.x = initialX;
         pos.y = Mathf.Clamp(pos.y, minYPosition, maxYPosition);
         transform.position = pos;
+    }
+
+    bool TouchDetected()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            // Check if the touch is in the "Began" phase
+            if (touch.phase == TouchPhase.Began)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void StartPlaying()
