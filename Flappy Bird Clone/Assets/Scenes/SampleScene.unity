@@ -816,8 +816,8 @@ MonoBehaviour:
   jumpForce: 2
   maxYPosition: 1.28
   minYPosition: -1.28
-  playerRb: {fileID: 0}
-  playerAnim: {fileID: 0}
+  playerRb: {fileID: 562358606}
+  playerAnim: {fileID: 562358609}
   initialX: 0
   initialPosition: {x: 0, y: 0, z: 0}
   isAlive: 1
