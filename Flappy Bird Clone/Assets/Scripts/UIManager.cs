@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
     public GameObject inGameScreen;      // Reference to the in game screen
     public Button playButton;            // Add reference to play button
 
-    public SpriteRenderer medalRenderer;  // Reference to the SpriteRenderer for the medal
+    public Image medalImage;  // Reference to the Image for the medal
     public Sprite bronzeMedal;            // Bronze metal sprite
     public Sprite silverMedal;            // Silver metal sprite
     public Sprite goldMedal;              // Gold metal sprite
@@ -156,33 +156,33 @@ public class UIManager : MonoBehaviour
         highScoreText.text = highScore.ToString();
 
         // Enable the medal GameObject
-        medalRenderer.gameObject.SetActive(true);
+        medalImage.gameObject.SetActive(true);
 
         // Determine which medal to display
         if (currentScore >= 40)
         {
-            medalRenderer.sprite = platinumMedal;
+            medalImage.sprite = platinumMedal;
         }
         else if (currentScore >= 30) // Set your thresholds as desired
         {
-            medalRenderer.sprite = goldMedal;
+            medalImage.sprite = goldMedal;
         }
         else if (currentScore >= 20)
         {
-            medalRenderer.sprite = silverMedal;
+            medalImage.sprite = silverMedal;
         }
         else if (currentScore >= 10)
         {
-            medalRenderer.sprite = bronzeMedal;
+            medalImage.sprite = bronzeMedal;
         }
         else
         {
-            medalRenderer.sprite = null; // No medal for lower scores
+            medalImage.gameObject.SetActive(false); // No medal for lower scores
         }
     }
 
     public void HideGameOverUI()
     {
-        medalRenderer.gameObject.SetActive(false);
+        medalImage.gameObject.SetActive(false);
     }
 }

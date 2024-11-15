@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
     public float minY = -1f;
     public float maxY = 3f;
     float startDelay = 1f;
-    float repeatRate = 0.7f;
+    float repeatRate = 1.4f;
 
     PlayerController playerController;
     bool isSpawning = false;
