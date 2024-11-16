@@ -95,6 +95,8 @@ How to Run the Game
 
 Download the APK and play it on your Android device.
 
+The apk file is in the the main folder.
+
 --------------------------------------------------------------------------------------------------------------
 
 Future Goals
