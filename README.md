@@ -12,7 +12,6 @@ No class diagrams or detailed plans were constructed prior to development. The f
 
 Assets Used:
 The game assets were sourced from https://www.spriters-resource.com/mobile/flappybird/sheet/59894/. 
-Full credit goes to the original creators.
 
 Role of AI:
 AI tools were heavily utilized throughout the project. They provided assistance in:
