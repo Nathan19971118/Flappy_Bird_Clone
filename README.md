@@ -47,8 +47,11 @@ Medal System:
 Players earn medals based on their score:
 
 Bronze (10+)
+
 Silver (20+)
+
 Gold (30+)
+
 Platinum (40+)
 
 Mobile Optimization:
@@ -91,15 +94,7 @@ Click “Replay” to begin a new game.
 
 How to Run the Game
 
-Clone this repository:
-bash
-Copy code
-git clone [repository link]
-Open the project in Unity (version 2021.3.30f1 or later).
-Build the game for desktop or mobile platforms.
-
-Alternatively, you can download the APK and play it on your Android device:
-Download the APK here
+Download the APK and play it on your Android device.
 
 --------------------------------------------------------------------------------------------------------------
 
