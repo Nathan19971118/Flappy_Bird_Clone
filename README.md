@@ -105,19 +105,3 @@ Future Goals
 * Add sound effects and background music.
 * Incorporate dynamic obstacles for increased variety.
 * Create structured plans for future projects, including class diagrams.
-
---------------------------------------------------------------------------------------------------------------
-
-This project marks a significant step in my game development journey. It helped me understand the value of planning, the role of external resources, and the importance of personal growth through hands-on experience.
-
-
-
-
-
-
-
-
-
-
-
-ChatGPT can make mistakes. Check important inf
